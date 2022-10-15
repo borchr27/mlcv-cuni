@@ -1,0 +1,88 @@
+This file contains information about libraries for python which will be used
+in the machine learning for computer vision course.
+It is likely that many of you already know what is needed and how to install
+libraries but in case that someone is new to python mutli-dimensional array
+processing then this is a short summary of steps that have to be done before
+we start writing ML or CV scripts.
+
+The university computers should have everything necessary already installed
+with the exception of tensorflow (used for neural networks). Therefore, these
+instructions are for your personal computers.
+
+Depending on your usage of python, you might want to create a virtual
+python environment to separate installed libraries from the system but that
+is out of the scope for these instructions.
+
+
+========PYTHON VERSION========
+The assignments were prepared in Python 3.9. We try to ensure as much
+compatibility as possible, however, we might use some QoL features of
+the newer versions.
+We recommend to use Python 3, since it is the main version installed on
+the university computers. Further, we advise using version >=3.5 because
+the provided scripts might use syntax available only from 3.5. However,
+the changes relate to type hints, thus, removing type hints from source
+files will make them compatible with older versions.
+
+
+========INSTALLATION OF LIBRARIES========
+Python uses a utility called pip for package(and library) management.
+Therefore the easiest way to install a new library is through command line
+by writing:
+>>> python -m pip install <name-of-package>
+
+You have to make sure that the right version of python is found in PATH.
+You are free to use any python management system, such as Anaconda.
+
+
+========IDE and execution========
+You are free to choose any IDE, however, most exercises use command line
+arguments so it would be better if you could also run scripts from command
+line. It is not necessary as the arguments can be changed directly in
+the script, but it is more convenient.
+
+
+========LIBRARIES========
+-> numpy
+Numpy is the most important library, because it allows fast manipulation
+with arrays and matrices.
+>>> python -m pip install numpy
+
+-> scipy
+Scipy contains additional mathematical/statistical functions so that we do
+not have to write them manually.
+>>> python -m pip install scipy
+
+-> matplotlib
+Allows us to draw images and plot graphs.
+>>> python -m pip install matplotlib
+
+-> pillow
+Loading and saving of images.
+>>> python -m pip install pillow
+
+-> scikit-learn
+Contains all machine learning algorithms we will use except convolutional
+neural networks.
+>>> python -m pip install scikit-learn
+
+-> scikit-image
+Contains useful image processing algorithm implementations.
+>>> python -m pip install scikit-image
+
+-> Tensorflow [OPTIONAL]
+This is a library for deep learning. We will use tensorflow if we get
+to convolutional neural networks.
+>>> python -m pip install tensorflow
+
+-> OpenCV [OPTIONAL]
+Python bindings for opencv - we will probably not use this library but
+in case you are interested in computer vision then this library is
+the largest collection of efficiently implemented algorithms.
+>>> python -m pip install opencv-python
+>>> python -m pip install opencv-contrib-python
+
+
+
+Any other libraries and tools will be mentioned in the practicals and relevant
+exercises.
