@@ -1,6 +1,5 @@
 
 import argparse
-import math
 import numpy as np
 from scipy.spatial.distance import cdist
 import lab02_help
@@ -52,18 +51,23 @@ def taskOneStep(labels : np.ndarray, features : np.ndarray):
 
     # labels (8124,)
     # features (8124,22)
-    x_bar = np.empty((features.shape[0],1))
-    feat_prev = 0
-    for c in features.T:
-        c_ = np.copy(np.reshape(c, (-1,1)))
-        c_score = np.sum(c_)
-        if c_score < feat_prev:
-            np.append(x_bar,c_,axis=1)
-        feat_prev = c_score
-    
-    print(x_bar.shape)
 
+    cols = features.shape[1]    # number of features / columns in the data
+    fCons, fCbfs, fIcd, fMi = [], [], [], []    # make lists for fitness data
+    fit_vals = [fCons, fCbfs, fIcd, fMi]    # make a list of the fit val lists
+    functions = [fitnessCons, fitnessCbfs, fitnessIcd, fitnessMi]      # make a list of the functions to process
 
+    for c in range(cols):
+        # for each column cycle thru all values
+        X = features[:, c]
+        for f, v in zip(functions, fit_vals):
+            # for each column in the data process it with the different functions and append value to list
+            v.append((f(labels, X), c))
+
+    for fit_list in fit_vals:
+        # for each list in fit_vals sort it then print the top three values
+        fit_list = sorted(fit_list, reverse=True)
+        print([i[1] for i in fit_list[:3]])
 
 def taskSequential(labels: np.ndarray, features : np.ndarray):
     # TODO: ===== Task 3 ('sequential') =====
@@ -71,8 +75,31 @@ def taskSequential(labels: np.ndarray, features : np.ndarray):
     #
     # Evaluate individual features, select top 3.
     # Compare the sets of features chosen with different fitness functions.
-    raise NotImplementedError()
+    
+    functions = [fitnessCons, fitnessCbfs, fitnessIcd, fitnessMi]
 
+    def sequential(labels, features, fitness):
+        new_X = np.zeros((features.shape[0],0))
+        final_indices = []
+        num_feat = features.shape[1]
+        
+        for _ in range(3):
+            scores = np.zeros(num_feat)
+            for feat in range(num_feat):
+                if feat in final_indices:
+                    scores[feat] = 0
+                    continue    # goes back to start of for loop
+                scores[feat] = fitness(labels, np.concatenate( \
+                    (new_X, features[:, feat].reshape(-1,1)), axis=1))
+            sorted = np.nanargmax(scores)   # use nanargmax here to grab the first value in the list if multiple are equal (not the last like np.argsort())
+            new_X = np.concatenate((new_X, features[:, sorted].reshape(-1,1)), axis=1)
+            final_indices.append(sorted)
+        print(final_indices)
+
+    for f in functions:
+        sequential(labels, features, f)
+
+ 
 
 def fitnessCons(labels : np.ndarray, X : np.ndarray) -> float:
     """
@@ -142,9 +169,10 @@ def fitnessCbfs(labels : np.ndarray, X : np.ndarray) -> float:
     # TODO: Return the final value J according to the formula from the lecture.
     if K > 1:
         rff = np.mean(coefs[K :])
-        return (K*rcf) / np.sqrt(K+K*(K-1)*rff)
+        ans = (K*rcf) / np.sqrt(K+K*(K-1)*rff)
+        return 0 if np.isnan(ans) else ans
     else:
-        return None
+        return 0 if np.isnan(rcf) else rcf
 
 def fitnessIcd(labels : np.ndarray, X : np.ndarray) -> float:
     """
