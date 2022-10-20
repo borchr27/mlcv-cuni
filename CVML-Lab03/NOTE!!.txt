@@ -1,0 +1,3 @@
+formulas from lexture need to be transposed, basically all of the formulas need to be transposed
+
+X_p = X_p @ B instead of X_l = B.T @ X_l
