@@ -4,10 +4,6 @@ import numpy as np
 from scipy.spatial.distance import cdist
 import lab02_help
 
-# Class Notes
-# use numpy.sort
-# use max for the covariance
-
 parser = argparse.ArgumentParser()
 # You may change the values of the arguments here (default) or in the commandline.
 # This exercise has 3 tasks:
@@ -47,27 +43,8 @@ def taskOneStep(labels : np.ndarray, features : np.ndarray):
     # Implement the One-step forward selection.
     #
     # Evaluate individual features, select top 3.
-    # Compare the sets of features chosen with different fitness functions.
-
-    # labels (8124,)
-    # features (8124,22)
-
-    cols = features.shape[1]    # number of features / columns in the data
-    fCons, fCbfs, fIcd, fMi = [], [], [], []    # make lists for fitness data
-    fit_vals = [fCons, fCbfs, fIcd, fMi]    # make a list of the fit val lists
-    functions = [fitnessCons, fitnessCbfs, fitnessIcd, fitnessMi]      # make a list of the functions to process
-
-    for c in range(cols):
-        # for each column cycle thru all values
-        X = features[:, c]
-        for f, v in zip(functions, fit_vals):
-            # for each column in the data process it with the different functions and append value to list
-            v.append((f(labels, X), c))
-
-    for fit_list in fit_vals:
-        # for each list in fit_vals sort it then print the top three values
-        fit_list = sorted(fit_list, reverse=True)
-        print([i[1] for i in fit_list[:3]])
+    # Compare the sets of features chosen with different fitness functions.   
+    raise NotImplementedError()
 
 def taskSequential(labels: np.ndarray, features : np.ndarray):
     # TODO: ===== Task 3 ('sequential') =====
@@ -75,31 +52,8 @@ def taskSequential(labels: np.ndarray, features : np.ndarray):
     #
     # Evaluate individual features, select top 3.
     # Compare the sets of features chosen with different fitness functions.
-    
-    functions = [fitnessCons, fitnessCbfs, fitnessIcd, fitnessMi]
+    raise NotImplementedError()
 
-    def sequential(labels, features, fitness):
-        new_X = np.zeros((features.shape[0],0))
-        final_indices = []
-        num_feat = features.shape[1]
-        
-        for _ in range(3):
-            scores = np.zeros(num_feat)
-            for feat in range(num_feat):
-                if feat in final_indices:
-                    scores[feat] = 0
-                    continue    # goes back to start of for loop
-                scores[feat] = fitness(labels, np.concatenate( \
-                    (new_X, features[:, feat].reshape(-1,1)), axis=1))
-            sorted = np.nanargmax(scores)   # use nanargmax here to grab the first value in the list if multiple are equal (not the last like np.argsort())
-            new_X = np.concatenate((new_X, features[:, sorted].reshape(-1,1)), axis=1)
-            final_indices.append(sorted)
-        print(final_indices)
-
-    for f in functions:
-        sequential(labels, features, f)
-
- 
 
 def fitnessCons(labels : np.ndarray, X : np.ndarray) -> float:
     """
@@ -112,12 +66,10 @@ def fitnessCons(labels : np.ndarray, X : np.ndarray) -> float:
     """
     # Make sure that the data array is a matrix(2D) and not a vector(1D).
     X = X if len(X.shape) > 1 else np.reshape(X, [-1, 1])
-    # print(X.shape)  (8241, 4)
 
     # Find unique rows
     C, ix, ic, M = np.unique(X, axis=0, return_index=True, return_inverse=True, return_counts=True)
-    # print(C.shape)  (31, 4) 
-
+    
     # C - unique rows
     # ic - index to C for each row in X
     # ix - index to the first occurence in X for each unique row
@@ -126,21 +78,18 @@ def fitnessCons(labels : np.ndarray, X : np.ndarray) -> float:
     # M - number of occurences for each unique row
     
     # TODO: For each unique row (a loop through ix) find the number of inconsistent classifications.
-    uniqueCount = len(C)
-    inconsistency_sum = 0
+    uniqueCount = None
     for i in range(uniqueCount):
         # Classes of each unique row
         clas = labels[ic == i]
         # Find classifications
         classes, jx, jc, classcounts = np.unique(clas, axis=0, return_index=True, return_inverse=True, return_counts=True)
         # TODO: Find the maximum of classcounts
-        M_max = np.max(classcounts)
         # TODO: Compute inconsistency of object 'i'
-        inconsistency = M[i] - M_max
-        inconsistency_sum += inconsistency
+        pass
 
     # TODO: Return the final value J according to the formula from the lecture
-    return 1 - inconsistency_sum/len(X)
+    return None
 
 def fitnessCbfs(labels : np.ndarray, X : np.ndarray) -> float:
     """
@@ -156,23 +105,22 @@ def fitnessCbfs(labels : np.ndarray, X : np.ndarray) -> float:
     # Correlation coefficients
     R = lab02_help.corrcoef(labels, X)
     # TODO: Compute the number of columns in X
-    K = X.shape[1]
+    K = None
 
     # Upper triangular matrix of ones
     indT = np.tri(K + 1, k=-1, dtype=bool).T
     
     # Matlab uses lower triangular matrix because it reads values column by column
     # whereas numpy does it row by row. The matrix R is symmetric.
-    coefs = R[indT]
+    coefs=R[indT]
     rcf = np.mean(coefs[0 : K])
 
     # TODO: Return the final value J according to the formula from the lecture.
     if K > 1:
         rff = np.mean(coefs[K :])
-        ans = (K*rcf) / np.sqrt(K+K*(K-1)*rff)
-        return 0 if np.isnan(ans) else ans
+        return None
     else:
-        return 0 if np.isnan(rcf) else rcf
+        return None
 
 def fitnessIcd(labels : np.ndarray, X : np.ndarray) -> float:
     """
@@ -194,13 +142,11 @@ def fitnessIcd(labels : np.ndarray, X : np.ndarray) -> float:
     D_X = np.mean(d_X)
 
     # TODO: Return the value of interclass distance according to the formula from the lecture.
-    return (X_0.shape[0]/len(X)) * (X_1.shape[0]/len(X)) * D_X
+    return None
 
 def fitnessMi(labels : np.ndarray, X : np.ndarray) -> float:
     """
     Mutual information
-    lables.shape = (8124,)
-    x.shape = (8124, 4)
 
     Write the body of this function. It should calculate the fitness
     (Mutual information) of a subset of features.
@@ -210,19 +156,14 @@ def fitnessMi(labels : np.ndarray, X : np.ndarray) -> float:
     # Make sure that the data array is a matrix(2D) and not a vector(1D).
     # - Renamed 'X' to 'Y' to match the formula from the slides.
     Y = X if len(X.shape) > 1 else np.reshape(X, [-1, 1])
-
     # Follow the formula I(Y;X) = H(Y) - H(Y|X)
     # The following line computes entropy of the whole set (Y in our formula).
     # - NOTE: 'X' in code is not the same as 'X' in the formula.
     entr = getEntropy(Y)
 
     # TODO: Compute the remaining terms of the formula.
-    X0 = X[np.nonzero(labels == 0)]
-    X1 = X[np.nonzero(labels == 1)]
-    ent_given_X = (getEntropy(X0) * len(X0) + getEntropy(X1) * len(X1)) / len(X)
-
     # TODO: Return the value of mutual information according to the formula from the lecture.
-    return entr - ent_given_X
+    return None
 
 def getEntropy(X : np.ndarray) -> float:
     """

@@ -1,0 +1,7 @@
+lab04a_nb_bin.py / lab4_1_nb_bin.m
+Train set accuracy: 82.80 %
+Test set accuracy: 83.83 %
+
+lab04b_nb_norm.py / lab4_2_nb_norm.m
+Train set accuracy 77.06%
+Test set accuracy 78.24%
