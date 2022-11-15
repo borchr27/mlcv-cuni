@@ -1,0 +1,10 @@
+>>> python lab06a_crossval.py --task=er --threshold=0.5 --confidence_alpha=0.05 --kfold_split=5
+Test set error rate: 0.1648
+Confidence interval: [0.1575, 0.1721]
+Validation errors: [0.17033333 0.18283333 0.18583333 0.17516667 0.1575    ]
+Mean validation error: 0.1743
+
+>>> python lab06a_crossval.py --task=tuning --kfold_split=5 --num_searched_thresholds=10
+Per-threshold mean validation errors: [0.1773     0.17436667 0.17393333 0.17311667 0.17378333 0.17461667
+ 0.1783     0.18425    0.1943     0.88763333]
+Selected threshold: 0.33
