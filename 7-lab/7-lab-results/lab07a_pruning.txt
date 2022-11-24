@@ -1,0 +1,59 @@
+>>> python lab07a_dt.py --task=pruning
+==================================================
+Pruning based on cost-complexity summary
+==================================================
+Summary of tree with impurity: 0.00000 pruned by alpha: 0.00000
+Misclassification error (Error rate): 0.0000
+==================================================
+Summary of tree with impurity: 0.00343 pruned by alpha: 0.00343
+Misclassification error (Error rate): 0.0018
+The class "POISONOUS" was misclassified 3 times.
+==================================================
+Summary of tree with impurity: 0.00798 pruned by alpha: 0.00455
+Misclassification error (Error rate): 0.0048
+The class "EDIBLE" was misclassified 5 times.
+The class "POISONOUS" was misclassified 3 times.
+==================================================
+Summary of tree with impurity: 0.01274 pruned by alpha: 0.00476
+Misclassification error (Error rate): 0.0089
+The class "EDIBLE" was misclassified 12 times.
+The class "POISONOUS" was misclassified 3 times.
+==================================================
+Summary of tree with impurity: 0.02272 pruned by alpha: 0.00499
+Misclassification error (Error rate): 0.0172
+The class "EDIBLE" was misclassified 26 times.
+The class "POISONOUS" was misclassified 3 times.
+==================================================
+Summary of tree with impurity: 0.03873 pruned by alpha: 0.00801
+Misclassification error (Error rate): 0.0291
+The class "EDIBLE" was misclassified 46 times.
+The class "POISONOUS" was misclassified 3 times.
+==================================================
+Summary of tree with impurity: 0.05390 pruned by alpha: 0.01517
+Misclassification error (Error rate): 0.0374
+The class "EDIBLE" was misclassified 46 times.
+The class "POISONOUS" was misclassified 17 times.
+==================================================
+Summary of tree with impurity: 0.07533 pruned by alpha: 0.02143
+Misclassification error (Error rate): 0.0493
+The class "EDIBLE" was misclassified 66 times.
+The class "POISONOUS" was misclassified 17 times.
+==================================================
+Summary of tree with impurity: 0.09919 pruned by alpha: 0.02386
+Misclassification error (Error rate): 0.0576
+The class "EDIBLE" was misclassified 83 times.
+The class "POISONOUS" was misclassified 14 times.
+==================================================
+Summary of tree with impurity: 0.16848 pruned by alpha: 0.06928
+Misclassification error (Error rate): 0.0926
+The class "EDIBLE" was misclassified 51 times.
+The class "POISONOUS" was misclassified 105 times.
+==================================================
+Summary of tree with impurity: 0.24922 pruned by alpha: 0.08074
+Misclassification error (Error rate): 0.1443
+The class "EDIBLE" was misclassified 152 times.
+The class "POISONOUS" was misclassified 91 times.
+==================================================
+Summary of tree with impurity: 0.49779 pruned by alpha: 0.24857
+Misclassification error (Error rate): 0.4667
+The class "POISONOUS" was misclassified 786 times.

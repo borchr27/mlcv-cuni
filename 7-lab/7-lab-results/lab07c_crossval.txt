@@ -1,0 +1,9 @@
+This is na example of how the results should look, but generators had a random seed so you will
+not get the exact same values.
+Considered parameters are ((weight_0, weight_1), max_depth, min_split, min_leaf_samples, max_leaf_nodes)
+Test set error might not be lower than validation error depending on RNG but they shouldn't be too different.
+
+>>> python lab07c_dt_pipeline.py --task=crossval
+The lowest mean validation error rate: 0.1
+Selected params: ((1.0, 1.0), 4, 5, 1, 7)
+Test set error rate: 0.040000000000000036
