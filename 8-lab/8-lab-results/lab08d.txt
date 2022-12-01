@@ -1,0 +1,8 @@
+>>> python lab08d_svm_mc.py --seed=42 --points=100 --C=1.0 --kernel=rbf --gamma=scale --multiclass=ovr
+Test accuracy for ovr strategy is: 95.0%.
+
+>>> python lab08d_svm_mc.py --seed=42 --points=100 --C=1.0 --kernel=rbf --gamma=scale --multiclass=ovo
+Test accuracy for ovo strategy is: 96.0%.
+
+>>> python lab08d_svm_mc.py --seed=42 --points=100 --C=1.0 --kernel=rbf --gamma=scale --multiclass=builtin
+Test accuracy for builtin strategy is: 96.25%.

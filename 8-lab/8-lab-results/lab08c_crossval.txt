@@ -1,0 +1,5 @@
+>>> python lab08c_svm_kernel.py --task=crossval --seed=42 --data=circle --points=100 --kfold_split=5 --gamma=scale
+LINEAR     Mean ACC: 0.6250     Validation ACCs: [0.65  0.575 0.575 0.65  0.675]
+RBF        Mean ACC: 0.9550     Validation ACCs: [0.95  0.975 1.    0.925 0.925]
+POLY2      Mean ACC: 0.9500     Validation ACCs: [0.95  1.    1.    0.875 0.925]
+POLY3      Mean ACC: 0.6350     Validation ACCs: [0.675 0.575 0.7   0.6   0.625]

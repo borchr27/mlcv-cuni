@@ -1,0 +1,7 @@
+>>> python lab08e_svm_mnist.py --seed=42 --samples=3000 --C=1.0 --kernel=rbf --gamma=scale --multiclass=builtin
+Accuracy on the test set:   94.080000%
+Error rate on the test set: 5.920000%
+F1 score on the test set:   0.940146
+Accuracy on the [3, 5] test set:   99.369085%
+Accuracy on the [4, 9] test set:   98.895028%
+Accuracy on the [1, 7] test set:   99.722607%
