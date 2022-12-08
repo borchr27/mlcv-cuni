@@ -1,0 +1,9 @@
+python lab09e_mlp_prediction.py --seed=42 --points=20 --test_points=20
+==================================================
+The following two values compare your forward pass with the builtin one.
+- The first value should be 0.0 (Floating point rounding errors might be possible).
+- For default threshold 0.5, the second value should be exactly 0.
+The absolute sum of prediction proba difference: 0.0
+The absolute sum of prediction difference: 0
+
+==================================================
