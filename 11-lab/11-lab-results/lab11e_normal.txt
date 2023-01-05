@@ -1,0 +1,57 @@
+python lab11e_kmedoids.py --clusters=5 --data=normal --seed=42 --distance=squareEuclidean --restarts=10 --max_iter=300
+Restart number: 0
+Iteration    0, WCE error: 1181.6929, difference from previous centers:  3.3444
+Iteration    1, WCE error: 904.5703, difference from previous centers:  0.4466
+Iteration    2, WCE error: 896.0460, difference from previous centers:  0.0621
+Iteration    3, WCE error: 895.2309, difference from previous centers:  0.0000
+Restart number: 1
+Iteration    0, WCE error: 1502.7981, difference from previous centers:  4.5635
+Iteration    1, WCE error: 923.9053, difference from previous centers:  0.6957
+Iteration    2, WCE error: 889.9503, difference from previous centers:  0.7173
+Iteration    3, WCE error: 870.7675, difference from previous centers:  0.6014
+Iteration    4, WCE error: 862.2400, difference from previous centers:  0.0000
+Restart number: 2
+Iteration    0, WCE error: 2441.4634, difference from previous centers:  5.0016
+Iteration    1, WCE error: 1177.6419, difference from previous centers:  2.0894
+Iteration    2, WCE error: 882.9665, difference from previous centers:  0.5632
+Iteration    3, WCE error: 878.6700, difference from previous centers:  0.4260
+Iteration    4, WCE error: 874.0129, difference from previous centers:  0.0675
+Iteration    5, WCE error: 873.8044, difference from previous centers:  0.1695
+Iteration    6, WCE error: 872.5821, difference from previous centers:  0.0000
+Restart number: 3
+Iteration    0, WCE error: 3191.3332, difference from previous centers:  6.0704
+Iteration    1, WCE error: 981.4172, difference from previous centers:  1.7713
+Iteration    2, WCE error: 902.8451, difference from previous centers:  0.3223
+Iteration    3, WCE error: 899.2478, difference from previous centers:  0.0000
+Restart number: 4
+Iteration    0, WCE error: 3491.7617, difference from previous centers:  5.9702
+Iteration    1, WCE error: 1056.7279, difference from previous centers:  2.2446
+Iteration    2, WCE error: 872.8423, difference from previous centers:  0.6308
+Iteration    3, WCE error: 862.5469, difference from previous centers:  0.1905
+Iteration    4, WCE error: 859.6874, difference from previous centers:  0.0000
+Restart number: 5
+Iteration    0, WCE error: 1063.5406, difference from previous centers:  3.1511
+Iteration    1, WCE error: 858.5974, difference from previous centers:  0.6993
+Iteration    2, WCE error: 845.4798, difference from previous centers:  0.3926
+Iteration    3, WCE error: 841.8316, difference from previous centers:  0.0000
+Restart number: 6
+Iteration    0, WCE error: 1018.5264, difference from previous centers:  1.9280
+Iteration    1, WCE error: 889.4179, difference from previous centers:  0.2610
+Iteration    2, WCE error: 881.1689, difference from previous centers:  0.0000
+Restart number: 7
+Iteration    0, WCE error: 4493.3944, difference from previous centers:  5.3075
+Iteration    1, WCE error: 1325.2378, difference from previous centers:  2.3459
+Iteration    2, WCE error: 983.1580, difference from previous centers:  0.8810
+Iteration    3, WCE error: 932.2682, difference from previous centers:  0.8251
+Iteration    4, WCE error: 916.2562, difference from previous centers:  0.5113
+Iteration    5, WCE error: 909.8462, difference from previous centers:  0.0000
+Restart number: 8
+Iteration    0, WCE error: 1761.2830, difference from previous centers:  3.7822
+Iteration    1, WCE error: 892.9683, difference from previous centers:  0.3877
+Iteration    2, WCE error: 888.4579, difference from previous centers:  0.0000
+Restart number: 9
+Iteration    0, WCE error: 2305.4859, difference from previous centers:  4.1747
+Iteration    1, WCE error: 1027.0583, difference from previous centers:  1.1426
+Iteration    2, WCE error: 933.9460, difference from previous centers:  0.3733
+Iteration    3, WCE error: 918.5152, difference from previous centers:  0.3494
+Iteration    4, WCE error: 912.5593, difference from previous centers:  0.0000
